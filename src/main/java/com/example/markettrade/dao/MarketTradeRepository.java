@@ -4,10 +4,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.markettrade.entity.MarketTrade;
+import com.example.markettrade.entity.MarketTradeEntity;
 
 @Transactional
-public interface MarketTradeRepository extends JpaRepository<MarketTrade, String> {
+public interface MarketTradeRepository extends JpaRepository<MarketTradeEntity, String> {
 
 
 }

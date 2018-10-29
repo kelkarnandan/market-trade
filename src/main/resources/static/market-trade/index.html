@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Market Trade Management</title>
+<script src="../../../node_modules/angular/angular.js"></script>
+<link href="../../node_modules/nvd3/build/nv.d3.css" rel="stylesheet"
+	type="text/css">
+<script src="../../node_modules/nvd3/build/nv.d3.js"></script>
+<script src="../../node_modules/d3/d3.js" charset="utf-8"></script>
+<script src="../../node_modules/d3/d3.min.js" charset="utf-8"></script>
+<script src="../../node_modules/nvd3/build/nv.d3.min.js"></script>
+<script src="../../node_modules/angular-nvd3/dist/angular-nvd3.js"></script>
+<script src="../../node_modules/angular-nvd3/dist/angular-nvd3.min.js"></script>
+<script src="../../node_modules/nvd3/examples/lib/stream_layers.js"></script>
+<script>
+	document.write('<base href="' + document.location + '" />');
+</script>
+<script src="app.js"></script>
+
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+<style>
+#chart svg {
+	height: 400px;
+}
+</style>
+</head>
+<!-- <body ng-app="markettrade" ng-controller="MainController as main"
+	ng-init="main.allMarketTrade()">
+	<nvd3 options="options" data="data"></nvd3>
+	<h1 align="center">List of Market Trade</h1>
+	<div id="markettrade-list" ng-show="main.showList">
+		<div class="container" style="padding: 50px 0;">
+			<div class="row" onmouseover="true">
+				<div class="col-12" align="center">
+					<table class="table table-striped" style="margin: 30px 0 20px;">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">UserID</th>
+								<th scope="col">TransactionId</th>
+								<th scope="col">ProcessedTime</th>
+								<th scope="col">From Currency</th>
+								<th scope="col">From Currency</th>
+								<th scope="col">Amount Sell</th>
+								<th scope="col">Amount Buy</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="mt in markettrades" style="line-height: 38px;">
+								<td>{{mt.id}}</td>
+								<td>{{mt.userId}}</td>
+								<td>{{mt.transactionId}}</td>
+								<td>{{mt.processedTime}}</td>
+								<td align="center">{{mt.fromCurrency}}</td>
+								<td align="center">{{mt.toCurrency}}</td>
+								<td align="center">{{mt.amountSell}}</td>
+								<td align="center">{{mt.amountBuy}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body> -->
+
+<body ng-app="markettrade" ng-controller="MainController as main"
+	ng-init="main.fromCurrencyVolume()">
+	<div id="markettrade-list" >
+		<div class="container" style="padding: 50px 0;">
+			<div class="row" onmouseover="true">
+				<div class="col-12" align="center">
+					<table class="table table-striped" style="margin: 30px 0 20px;">
+						<thead>
+							<tr>
+								<th scope="col">From Currency</th>
+								<th scope="col">Total Sold</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="(key, value) in fromCurrencyTrades" style="line-height: 38px;">
+								<td>{{key}}</td>
+								<td>{{value}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
