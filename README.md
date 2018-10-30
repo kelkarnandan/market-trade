@@ -48,6 +48,8 @@ For speed of development + time constraints,
 
     This application was developed with a single service three tier architecture and no security features
     like Basic Authentication:: username/password
+    
+    Basic request validation using @Valid annotation. Currently only for UserId, can we added for other fields with relevant message. 
 	
     With more time and investment, this could be broken down into a micro-services architecture 
     that would communicate through seperately deployed message brokers as well as RESTful 
