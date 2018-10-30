@@ -3,7 +3,8 @@ Features
 
     Consumes incoming trades and persists them in an [in-memory] database
     Provides a stream of CurrencyFrom/To updates to a frontend UI
-    Provides random generation of currency trades ie 10 per each request send. 
+    Provides random generation of currency trades ie 10 per each request send.
+    Rate would be as per input rate
     Active MQ to manage the inbound outbound queues. 
 	
 Requirements
