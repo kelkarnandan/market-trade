@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.example.markettrade.util.MarketTradeStringUtils;
 
@@ -32,6 +34,7 @@ public class MarketTradeEntity {
     @Column(name = "amountBuy")
     private BigDecimal amountBuy;
     @Column(name = "processed_time")
+    @Temporal(TemporalType.DATE)
     private Date processedTime;
 
     /**

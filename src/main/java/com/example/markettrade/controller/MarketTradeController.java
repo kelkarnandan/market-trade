@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.markettrade.entity.MarketTradeEntity;
+import com.example.markettrade.model.MarketTradeLabelValue;
 import com.example.markettrade.model.MarketTradeModel;
 import com.example.markettrade.service.MarketTradeService;
 import com.example.markettrade.util.MarketTradeStringUtils;
@@ -40,7 +40,7 @@ public class MarketTradeController {
     @PostMapping("/transfer")
     public String transfer(@RequestBody MarketTradeModel marketTradeModel) {
         List<MarketTradeModel> listOfMarketTradeModel = new ArrayList<>();
-        int tradeCount = 100;
+        int tradeCount = 10;
         for (int i = 0; i < tradeCount; i++) {
             Random random = new Random();
             BigDecimal randomSellAmount = BigDecimal
@@ -69,9 +69,8 @@ public class MarketTradeController {
         return service.allMarketTrade();
     }
 
-    @GetMapping("/fromCurrencyTrade")
-    public Map<String, Long> fromCurrencyTrade() {
-        return service.fromCurrencyTrade();
+    @GetMapping("/getByCurrencyAndTotal")
+    public List<MarketTradeLabelValue> getByCurrencyAndTotal() {
+        return service.getByCurrencyAndTotal();
     }
-
 }
