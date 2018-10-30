@@ -15,7 +15,13 @@ Requirements
 
 Prerequsite
 
-    Install Active MQ and provide path in Arguments like "C:\CodeBase\apache\apache-activemq-5.11.1\bin\activemq.bat"
+    - Install Active MQ and provide path in Arguments like "C:\CodeBase\apache\apache-activemq-5.11.1\bin\activemq.bat"
+    - Update conf/jetty.xml in active mq with below details : 
+	    <bean id="jettyPort" class="org.apache.activemq.web.WebConsolePort" init-method="start">
+		     <!-- the default port number for the web console -->
+		<property name="host" value="localhost"/>
+		<property name="port" value="8165"/>
+	    </bean>
 
 Installation
 	
@@ -34,9 +40,9 @@ Endpoints
     Trade API - POST localhost:8080/marketTrade/transfer
     Stats API - GET localhost:8080/marketTrade/getByCurrencyAndTotal
     InMemory Database : http://localhost:8080/h2-console/
-    
+    DB Query: 
+    	SELECT * FROM CURRENCYFAIR.MARKET_TRADE ;
 Notes
-
 For speed of development + time constraints, 
 
     This application was developed with a single service three tier architecture and no security features
@@ -53,5 +59,5 @@ For speed of development + time constraints,
     Statistics service that would process UI requests for statistics.
     Active MQ can be replaced with Azure Queue service.
 
-	Also, one current test exists to ensure the application context can be loaded and the application can serve requests.
-	BDD tests could be incorporated in to allowed for comprehensible test scenarios.
+    Also, one current test exists to ensure the application context can be loaded and the application can serve requests.
+    BDD tests could be incorporated in to allowed for comprehensible test scenarios.
