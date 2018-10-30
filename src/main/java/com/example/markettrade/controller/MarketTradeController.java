@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +40,7 @@ public class MarketTradeController {
     private MarketTradeService service;
 
     @PostMapping("/transfer")
-    public String transfer(@RequestBody MarketTradeModel marketTradeModel) {
+    public String transfer(@Valid @RequestBody MarketTradeModel marketTradeModel) {
         List<MarketTradeModel> listOfMarketTradeModel = new ArrayList<>();
         int tradeCount = 10;
         for (int i = 0; i < tradeCount; i++) {
